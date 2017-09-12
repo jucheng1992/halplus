@@ -44,6 +44,7 @@ hal <- function(Y,
                 useMin = TRUE,
                 debug = TRUE,
                 parallel = FALSE,
+                foldid,
                 ... # allow extra arguments with no death
                 ) {
 
@@ -190,7 +191,9 @@ hal <- function(Y,
         family = "gaussian",
         alpha = 1,
         nlambda = nlambda,
-        parallel = parallel
+        parallel = parallel,
+        foldid = foldid,
+        keep = TRUE
       )
   } else {
     # No duplication.
@@ -205,7 +208,9 @@ hal <- function(Y,
       family = "gaussian",
       alpha = 1,
       nlambda = nlambda,
-      parallel = parallel
+      parallel = parallel,
+      foldid = foldid,
+      keep = TRUE
     )
   }
   time_lasso_end <- proc.time()
